@@ -7,6 +7,11 @@ $(call inherit-product-if-exists, vendor/cubot/gt99/gt99-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/cubot/gt99/overlay
 
+# Set usb type
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    persist.sys.usb.config=mass_storage,adb \
+    persist.service.adb.enable=1
+
 LOCAL_PATH := device/cubot/gt99
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
